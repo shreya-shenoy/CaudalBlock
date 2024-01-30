@@ -1,0 +1,795 @@
+fileFormatVersion: 2
+guid: 35156cd6125ae054093258127b715004
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: Basic Arm
+    100002: Elbow Base
+    100004: Forearm NURB before cut - BACKUP
+    100006: //RootNode
+    100008: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------
+    100010: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_2
+    100012: Object_2
+    100014: Tourniquet Pressure Plate
+    100016: Arm Supports
+    100018: Distal Bulkhead
+    100020: Finger Plate
+    100022: Forearm
+    100024: Gel
+    100026: Gel_2
+    100028: Hand
+    100030: Hand Base
+    100032: Index Block
+    100034: Index Plate and Mount 2018
+    100036: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_3
+    100038: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_4
+    100040: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_5
+    100042: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_6
+    100044: Object_1
+    100046: Object_3
+    100048: Object_4
+    100050: Object_5
+    100052: Object_6
+    100054: Object_7
+    100056: Object_8
+    100058: Object_9
+    100060: Platform Top Plate milled to 4.3 mm
+    100062: Proximal Bulkhead
+    100064: Stand
+    100066: Support
+    100068: Tab Block - Finger Tracker Mod
+    100070: Wrist support
+    100072: Interlink FSR 402 - Short - Copy
+    100074: Object_10
+    100076: Object_11
+    100078: Object_12
+    100080: Object_13
+    100082: PCTUB0.625X0.500
+    100084: Registration Snaps
+    100086: Short Tail-Conductor
+    100088: Short Tail-Conductor Substrate
+    100090: Short Tail-Conductor Substrate_2
+    100092: Short Tail-Conductor Substrate_3
+    100094: Short Tail-Conductor Substrate_4
+    100096: Short Tail-Conductor_10
+    100098: Short Tail-Conductor_11
+    100100: Short Tail-Conductor_12
+    100102: Short Tail-Conductor_13
+    100104: Short Tail-Conductor_14
+    100106: Short Tail-Conductor_15
+    100108: Short Tail-Conductor_16
+    100110: Short Tail-Conductor_17
+    100112: Short Tail-Conductor_18
+    100114: Short Tail-Conductor_19
+    100116: Short Tail-Conductor_2
+    100118: Short Tail-Conductor_20
+    100120: Short Tail-Conductor_21
+    100122: Short Tail-Conductor_22
+    100124: Short Tail-Conductor_23
+    100126: Short Tail-Conductor_24
+    100128: Short Tail-Conductor_25
+    100130: Short Tail-Conductor_26
+    100132: Short Tail-Conductor_27
+    100134: Short Tail-Conductor_28
+    100136: Short Tail-Conductor_29
+    100138: Short Tail-Conductor_3
+    100140: Short Tail-Conductor_30
+    100142: Short Tail-Conductor_31
+    100144: Short Tail-Conductor_32
+    100146: Short Tail-Conductor_33
+    100148: Short Tail-Conductor_34
+    100150: Short Tail-Conductor_35
+    100152: Short Tail-Conductor_36
+    100154: Short Tail-Conductor_37
+    100156: Short Tail-Conductor_38
+    100158: Short Tail-Conductor_39
+    100160: Short Tail-Conductor_4
+    100162: Short Tail-Conductor_40
+    100164: Short Tail-Conductor_41
+    100166: Short Tail-Conductor_42
+    100168: Short Tail-Conductor_43
+    100170: Short Tail-Conductor_44
+    100172: Short Tail-Conductor_45
+    100174: Short Tail-Conductor_46
+    100176: Short Tail-Conductor_47
+    100178: Short Tail-Conductor_48
+    100180: Short Tail-Conductor_49
+    100182: Short Tail-Conductor_5
+    100184: Short Tail-Conductor_50
+    100186: Short Tail-Conductor_51
+    100188: Short Tail-Conductor_52
+    100190: Short Tail-Conductor_53
+    100192: Short Tail-Conductor_54
+    100194: Short Tail-Conductor_55
+    100196: Short Tail-Conductor_56
+    100198: Short Tail-Conductor_57
+    100200: Short Tail-Conductor_58
+    100202: Short Tail-Conductor_59
+    100204: Short Tail-Conductor_6
+    100206: Short Tail-Conductor_60
+    100208: Short Tail-Conductor_61
+    100210: Short Tail-Conductor_62
+    100212: Short Tail-Conductor_63
+    100214: Short Tail-Conductor_64
+    100216: Short Tail-Conductor_65
+    100218: Short Tail-Conductor_66
+    100220: Short Tail-Conductor_67
+    100222: Short Tail-Conductor_68
+    100224: Short Tail-Conductor_69
+    100226: Short Tail-Conductor_7
+    100228: Short Tail-Conductor_70
+    100230: Short Tail-Conductor_71
+    100232: Short Tail-Conductor_72
+    100234: Short Tail-Conductor_73
+    100236: Short Tail-Conductor_74
+    100238: Short Tail-Conductor_75
+    100240: Short Tail-Conductor_76
+    100242: Short Tail-Conductor_77
+    100244: Short Tail-Conductor_78
+    100246: Short Tail-Conductor_79
+    100248: Short Tail-Conductor_8
+    100250: Short Tail-Conductor_80
+    100252: Short Tail-Conductor_81
+    100254: Short Tail-Conductor_82
+    100256: Short Tail-Conductor_83
+    100258: Short Tail-Conductor_84
+    100260: Short Tail-Conductor_9
+    100262: Short Tail-Rear Adhesive
+    100264: Short Tail-Rear Adhesive_2
+    100266: Short Tail-Rear Adhesive_3
+    100268: Short Tail-Rear Adhesive_4
+    100270: Short Tail-Semi
+    100272: Short Tail-Semi Substrate
+    100274: Short Tail-Semi Substrate_2
+    100276: Short Tail-Semi Substrate_3
+    100278: Short Tail-Semi Substrate_4
+    100280: Short Tail-Semi_2
+    100282: Short Tail-Semi_3
+    100284: Short Tail-Semi_4
+    100286: Short Tail-Spacer
+    100288: Short Tail-Spacer_2
+    100290: Short Tail-Spacer_3
+    100292: Short Tail-Spacer_4
+    100294: SolderTab
+    100296: SolderTab_2
+    100298: SolderTab_3
+    100300: SolderTab_4
+    100302: SolderTab_5
+    100304: SolderTab_6
+    100306: SolderTab_7
+    100308: SolderTab_8
+    400000: Basic Arm
+    400002: Elbow Base
+    400004: Forearm NURB before cut - BACKUP
+    400006: //RootNode
+    400008: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------
+    400010: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_2
+    400012: Object_2
+    400014: Tourniquet Pressure Plate
+    400016: Arm Supports
+    400018: Distal Bulkhead
+    400020: Finger Plate
+    400022: Forearm
+    400024: Gel
+    400026: Gel_2
+    400028: Hand
+    400030: Hand Base
+    400032: Index Block
+    400034: Index Plate and Mount 2018
+    400036: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_3
+    400038: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_4
+    400040: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_5
+    400042: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_6
+    400044: Object_1
+    400046: Object_3
+    400048: Object_4
+    400050: Object_5
+    400052: Object_6
+    400054: Object_7
+    400056: Object_8
+    400058: Object_9
+    400060: Platform Top Plate milled to 4.3 mm
+    400062: Proximal Bulkhead
+    400064: Stand
+    400066: Support
+    400068: Tab Block - Finger Tracker Mod
+    400070: Wrist support
+    400072: Interlink FSR 402 - Short - Copy
+    400074: Object_10
+    400076: Object_11
+    400078: Object_12
+    400080: Object_13
+    400082: PCTUB0.625X0.500
+    400084: Registration Snaps
+    400086: Short Tail-Conductor
+    400088: Short Tail-Conductor Substrate
+    400090: Short Tail-Conductor Substrate_2
+    400092: Short Tail-Conductor Substrate_3
+    400094: Short Tail-Conductor Substrate_4
+    400096: Short Tail-Conductor_10
+    400098: Short Tail-Conductor_11
+    400100: Short Tail-Conductor_12
+    400102: Short Tail-Conductor_13
+    400104: Short Tail-Conductor_14
+    400106: Short Tail-Conductor_15
+    400108: Short Tail-Conductor_16
+    400110: Short Tail-Conductor_17
+    400112: Short Tail-Conductor_18
+    400114: Short Tail-Conductor_19
+    400116: Short Tail-Conductor_2
+    400118: Short Tail-Conductor_20
+    400120: Short Tail-Conductor_21
+    400122: Short Tail-Conductor_22
+    400124: Short Tail-Conductor_23
+    400126: Short Tail-Conductor_24
+    400128: Short Tail-Conductor_25
+    400130: Short Tail-Conductor_26
+    400132: Short Tail-Conductor_27
+    400134: Short Tail-Conductor_28
+    400136: Short Tail-Conductor_29
+    400138: Short Tail-Conductor_3
+    400140: Short Tail-Conductor_30
+    400142: Short Tail-Conductor_31
+    400144: Short Tail-Conductor_32
+    400146: Short Tail-Conductor_33
+    400148: Short Tail-Conductor_34
+    400150: Short Tail-Conductor_35
+    400152: Short Tail-Conductor_36
+    400154: Short Tail-Conductor_37
+    400156: Short Tail-Conductor_38
+    400158: Short Tail-Conductor_39
+    400160: Short Tail-Conductor_4
+    400162: Short Tail-Conductor_40
+    400164: Short Tail-Conductor_41
+    400166: Short Tail-Conductor_42
+    400168: Short Tail-Conductor_43
+    400170: Short Tail-Conductor_44
+    400172: Short Tail-Conductor_45
+    400174: Short Tail-Conductor_46
+    400176: Short Tail-Conductor_47
+    400178: Short Tail-Conductor_48
+    400180: Short Tail-Conductor_49
+    400182: Short Tail-Conductor_5
+    400184: Short Tail-Conductor_50
+    400186: Short Tail-Conductor_51
+    400188: Short Tail-Conductor_52
+    400190: Short Tail-Conductor_53
+    400192: Short Tail-Conductor_54
+    400194: Short Tail-Conductor_55
+    400196: Short Tail-Conductor_56
+    400198: Short Tail-Conductor_57
+    400200: Short Tail-Conductor_58
+    400202: Short Tail-Conductor_59
+    400204: Short Tail-Conductor_6
+    400206: Short Tail-Conductor_60
+    400208: Short Tail-Conductor_61
+    400210: Short Tail-Conductor_62
+    400212: Short Tail-Conductor_63
+    400214: Short Tail-Conductor_64
+    400216: Short Tail-Conductor_65
+    400218: Short Tail-Conductor_66
+    400220: Short Tail-Conductor_67
+    400222: Short Tail-Conductor_68
+    400224: Short Tail-Conductor_69
+    400226: Short Tail-Conductor_7
+    400228: Short Tail-Conductor_70
+    400230: Short Tail-Conductor_71
+    400232: Short Tail-Conductor_72
+    400234: Short Tail-Conductor_73
+    400236: Short Tail-Conductor_74
+    400238: Short Tail-Conductor_75
+    400240: Short Tail-Conductor_76
+    400242: Short Tail-Conductor_77
+    400244: Short Tail-Conductor_78
+    400246: Short Tail-Conductor_79
+    400248: Short Tail-Conductor_8
+    400250: Short Tail-Conductor_80
+    400252: Short Tail-Conductor_81
+    400254: Short Tail-Conductor_82
+    400256: Short Tail-Conductor_83
+    400258: Short Tail-Conductor_84
+    400260: Short Tail-Conductor_9
+    400262: Short Tail-Rear Adhesive
+    400264: Short Tail-Rear Adhesive_2
+    400266: Short Tail-Rear Adhesive_3
+    400268: Short Tail-Rear Adhesive_4
+    400270: Short Tail-Semi
+    400272: Short Tail-Semi Substrate
+    400274: Short Tail-Semi Substrate_2
+    400276: Short Tail-Semi Substrate_3
+    400278: Short Tail-Semi Substrate_4
+    400280: Short Tail-Semi_2
+    400282: Short Tail-Semi_3
+    400284: Short Tail-Semi_4
+    400286: Short Tail-Spacer
+    400288: Short Tail-Spacer_2
+    400290: Short Tail-Spacer_3
+    400292: Short Tail-Spacer_4
+    400294: SolderTab
+    400296: SolderTab_2
+    400298: SolderTab_3
+    400300: SolderTab_4
+    400302: SolderTab_5
+    400304: SolderTab_6
+    400306: SolderTab_7
+    400308: SolderTab_8
+    2100000: Material_1
+    2300000: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------
+    2300002: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_2
+    2300004: Object_2
+    2300006: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_3
+    2300008: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_4
+    2300010: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_5
+    2300012: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_6
+    2300014: Object_1
+    2300016: Object_3
+    2300018: Object_4
+    2300020: Object_5
+    2300022: Object_6
+    2300024: Object_7
+    2300026: Object_8
+    2300028: Object_9
+    2300030: Object_10
+    2300032: Object_11
+    2300034: Object_12
+    2300036: Object_13
+    2300038: Short Tail-Conductor
+    2300040: Short Tail-Conductor Substrate
+    2300042: Short Tail-Conductor Substrate_2
+    2300044: Short Tail-Conductor Substrate_3
+    2300046: Short Tail-Conductor Substrate_4
+    2300048: Short Tail-Conductor_10
+    2300050: Short Tail-Conductor_11
+    2300052: Short Tail-Conductor_12
+    2300054: Short Tail-Conductor_13
+    2300056: Short Tail-Conductor_14
+    2300058: Short Tail-Conductor_15
+    2300060: Short Tail-Conductor_16
+    2300062: Short Tail-Conductor_17
+    2300064: Short Tail-Conductor_18
+    2300066: Short Tail-Conductor_19
+    2300068: Short Tail-Conductor_2
+    2300070: Short Tail-Conductor_20
+    2300072: Short Tail-Conductor_21
+    2300074: Short Tail-Conductor_22
+    2300076: Short Tail-Conductor_23
+    2300078: Short Tail-Conductor_24
+    2300080: Short Tail-Conductor_25
+    2300082: Short Tail-Conductor_26
+    2300084: Short Tail-Conductor_27
+    2300086: Short Tail-Conductor_28
+    2300088: Short Tail-Conductor_29
+    2300090: Short Tail-Conductor_3
+    2300092: Short Tail-Conductor_30
+    2300094: Short Tail-Conductor_31
+    2300096: Short Tail-Conductor_32
+    2300098: Short Tail-Conductor_33
+    2300100: Short Tail-Conductor_34
+    2300102: Short Tail-Conductor_35
+    2300104: Short Tail-Conductor_36
+    2300106: Short Tail-Conductor_37
+    2300108: Short Tail-Conductor_38
+    2300110: Short Tail-Conductor_39
+    2300112: Short Tail-Conductor_4
+    2300114: Short Tail-Conductor_40
+    2300116: Short Tail-Conductor_41
+    2300118: Short Tail-Conductor_42
+    2300120: Short Tail-Conductor_43
+    2300122: Short Tail-Conductor_44
+    2300124: Short Tail-Conductor_45
+    2300126: Short Tail-Conductor_46
+    2300128: Short Tail-Conductor_47
+    2300130: Short Tail-Conductor_48
+    2300132: Short Tail-Conductor_49
+    2300134: Short Tail-Conductor_5
+    2300136: Short Tail-Conductor_50
+    2300138: Short Tail-Conductor_51
+    2300140: Short Tail-Conductor_52
+    2300142: Short Tail-Conductor_53
+    2300144: Short Tail-Conductor_54
+    2300146: Short Tail-Conductor_55
+    2300148: Short Tail-Conductor_56
+    2300150: Short Tail-Conductor_57
+    2300152: Short Tail-Conductor_58
+    2300154: Short Tail-Conductor_59
+    2300156: Short Tail-Conductor_6
+    2300158: Short Tail-Conductor_60
+    2300160: Short Tail-Conductor_61
+    2300162: Short Tail-Conductor_62
+    2300164: Short Tail-Conductor_63
+    2300166: Short Tail-Conductor_64
+    2300168: Short Tail-Conductor_65
+    2300170: Short Tail-Conductor_66
+    2300172: Short Tail-Conductor_67
+    2300174: Short Tail-Conductor_68
+    2300176: Short Tail-Conductor_69
+    2300178: Short Tail-Conductor_7
+    2300180: Short Tail-Conductor_70
+    2300182: Short Tail-Conductor_71
+    2300184: Short Tail-Conductor_72
+    2300186: Short Tail-Conductor_73
+    2300188: Short Tail-Conductor_74
+    2300190: Short Tail-Conductor_75
+    2300192: Short Tail-Conductor_76
+    2300194: Short Tail-Conductor_77
+    2300196: Short Tail-Conductor_78
+    2300198: Short Tail-Conductor_79
+    2300200: Short Tail-Conductor_8
+    2300202: Short Tail-Conductor_80
+    2300204: Short Tail-Conductor_81
+    2300206: Short Tail-Conductor_82
+    2300208: Short Tail-Conductor_83
+    2300210: Short Tail-Conductor_84
+    2300212: Short Tail-Conductor_9
+    2300214: Short Tail-Rear Adhesive
+    2300216: Short Tail-Rear Adhesive_2
+    2300218: Short Tail-Rear Adhesive_3
+    2300220: Short Tail-Rear Adhesive_4
+    2300222: Short Tail-Semi
+    2300224: Short Tail-Semi Substrate
+    2300226: Short Tail-Semi Substrate_2
+    2300228: Short Tail-Semi Substrate_3
+    2300230: Short Tail-Semi Substrate_4
+    2300232: Short Tail-Semi_2
+    2300234: Short Tail-Semi_3
+    2300236: Short Tail-Semi_4
+    2300238: Short Tail-Spacer
+    2300240: Short Tail-Spacer_2
+    2300242: Short Tail-Spacer_3
+    2300244: Short Tail-Spacer_4
+    2300246: SolderTab
+    2300248: SolderTab_2
+    2300250: SolderTab_3
+    2300252: SolderTab_4
+    2300254: SolderTab_5
+    2300256: SolderTab_6
+    2300258: SolderTab_7
+    2300260: SolderTab_8
+    3300000: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------
+    3300002: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_2
+    3300004: Object_2
+    3300006: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_3
+    3300008: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_4
+    3300010: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_5
+    3300012: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_6
+    3300014: Object_1
+    3300016: Object_3
+    3300018: Object_4
+    3300020: Object_5
+    3300022: Object_6
+    3300024: Object_7
+    3300026: Object_8
+    3300028: Object_9
+    3300030: Object_10
+    3300032: Object_11
+    3300034: Object_12
+    3300036: Object_13
+    3300038: Short Tail-Conductor
+    3300040: Short Tail-Conductor Substrate
+    3300042: Short Tail-Conductor Substrate_2
+    3300044: Short Tail-Conductor Substrate_3
+    3300046: Short Tail-Conductor Substrate_4
+    3300048: Short Tail-Conductor_10
+    3300050: Short Tail-Conductor_11
+    3300052: Short Tail-Conductor_12
+    3300054: Short Tail-Conductor_13
+    3300056: Short Tail-Conductor_14
+    3300058: Short Tail-Conductor_15
+    3300060: Short Tail-Conductor_16
+    3300062: Short Tail-Conductor_17
+    3300064: Short Tail-Conductor_18
+    3300066: Short Tail-Conductor_19
+    3300068: Short Tail-Conductor_2
+    3300070: Short Tail-Conductor_20
+    3300072: Short Tail-Conductor_21
+    3300074: Short Tail-Conductor_22
+    3300076: Short Tail-Conductor_23
+    3300078: Short Tail-Conductor_24
+    3300080: Short Tail-Conductor_25
+    3300082: Short Tail-Conductor_26
+    3300084: Short Tail-Conductor_27
+    3300086: Short Tail-Conductor_28
+    3300088: Short Tail-Conductor_29
+    3300090: Short Tail-Conductor_3
+    3300092: Short Tail-Conductor_30
+    3300094: Short Tail-Conductor_31
+    3300096: Short Tail-Conductor_32
+    3300098: Short Tail-Conductor_33
+    3300100: Short Tail-Conductor_34
+    3300102: Short Tail-Conductor_35
+    3300104: Short Tail-Conductor_36
+    3300106: Short Tail-Conductor_37
+    3300108: Short Tail-Conductor_38
+    3300110: Short Tail-Conductor_39
+    3300112: Short Tail-Conductor_4
+    3300114: Short Tail-Conductor_40
+    3300116: Short Tail-Conductor_41
+    3300118: Short Tail-Conductor_42
+    3300120: Short Tail-Conductor_43
+    3300122: Short Tail-Conductor_44
+    3300124: Short Tail-Conductor_45
+    3300126: Short Tail-Conductor_46
+    3300128: Short Tail-Conductor_47
+    3300130: Short Tail-Conductor_48
+    3300132: Short Tail-Conductor_49
+    3300134: Short Tail-Conductor_5
+    3300136: Short Tail-Conductor_50
+    3300138: Short Tail-Conductor_51
+    3300140: Short Tail-Conductor_52
+    3300142: Short Tail-Conductor_53
+    3300144: Short Tail-Conductor_54
+    3300146: Short Tail-Conductor_55
+    3300148: Short Tail-Conductor_56
+    3300150: Short Tail-Conductor_57
+    3300152: Short Tail-Conductor_58
+    3300154: Short Tail-Conductor_59
+    3300156: Short Tail-Conductor_6
+    3300158: Short Tail-Conductor_60
+    3300160: Short Tail-Conductor_61
+    3300162: Short Tail-Conductor_62
+    3300164: Short Tail-Conductor_63
+    3300166: Short Tail-Conductor_64
+    3300168: Short Tail-Conductor_65
+    3300170: Short Tail-Conductor_66
+    3300172: Short Tail-Conductor_67
+    3300174: Short Tail-Conductor_68
+    3300176: Short Tail-Conductor_69
+    3300178: Short Tail-Conductor_7
+    3300180: Short Tail-Conductor_70
+    3300182: Short Tail-Conductor_71
+    3300184: Short Tail-Conductor_72
+    3300186: Short Tail-Conductor_73
+    3300188: Short Tail-Conductor_74
+    3300190: Short Tail-Conductor_75
+    3300192: Short Tail-Conductor_76
+    3300194: Short Tail-Conductor_77
+    3300196: Short Tail-Conductor_78
+    3300198: Short Tail-Conductor_79
+    3300200: Short Tail-Conductor_8
+    3300202: Short Tail-Conductor_80
+    3300204: Short Tail-Conductor_81
+    3300206: Short Tail-Conductor_82
+    3300208: Short Tail-Conductor_83
+    3300210: Short Tail-Conductor_84
+    3300212: Short Tail-Conductor_9
+    3300214: Short Tail-Rear Adhesive
+    3300216: Short Tail-Rear Adhesive_2
+    3300218: Short Tail-Rear Adhesive_3
+    3300220: Short Tail-Rear Adhesive_4
+    3300222: Short Tail-Semi
+    3300224: Short Tail-Semi Substrate
+    3300226: Short Tail-Semi Substrate_2
+    3300228: Short Tail-Semi Substrate_3
+    3300230: Short Tail-Semi Substrate_4
+    3300232: Short Tail-Semi_2
+    3300234: Short Tail-Semi_3
+    3300236: Short Tail-Semi_4
+    3300238: Short Tail-Spacer
+    3300240: Short Tail-Spacer_2
+    3300242: Short Tail-Spacer_3
+    3300244: Short Tail-Spacer_4
+    3300246: SolderTab
+    3300248: SolderTab_2
+    3300250: SolderTab_3
+    3300252: SolderTab_4
+    3300254: SolderTab_5
+    3300256: SolderTab_6
+    3300258: SolderTab_7
+    3300260: SolderTab_8
+    4300000: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------
+    4300002: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_2
+    4300004: Object_2
+    4300006: Object_1
+    4300008: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_3
+    4300010: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_6
+    4300012: Object_3
+    4300014: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_4
+    4300016: MESHMIXER-STL-BINARY-FORMAT----------------------------------------------------_5
+    4300018: Object_4
+    4300020: Object_5
+    4300022: Object_6
+    4300024: Object_7
+    4300026: Object_8
+    4300028: Object_9
+    4300030: Short Tail-Rear Adhesive
+    4300032: Short Tail-Semi Substrate
+    4300034: Short Tail-Semi
+    4300036: Short Tail-Spacer
+    4300038: Short Tail-Conductor
+    4300040: Short Tail-Conductor_2
+    4300042: Short Tail-Conductor_3
+    4300044: Short Tail-Conductor_4
+    4300046: Short Tail-Conductor_5
+    4300048: Short Tail-Conductor_6
+    4300050: Short Tail-Conductor_7
+    4300052: Short Tail-Conductor_8
+    4300054: Short Tail-Conductor_9
+    4300056: Short Tail-Conductor_10
+    4300058: Short Tail-Conductor_11
+    4300060: Short Tail-Conductor_12
+    4300062: Short Tail-Conductor_13
+    4300064: Short Tail-Conductor_14
+    4300066: Short Tail-Conductor_15
+    4300068: Short Tail-Conductor_16
+    4300070: Short Tail-Conductor_17
+    4300072: Short Tail-Conductor_18
+    4300074: Short Tail-Conductor_19
+    4300076: Short Tail-Conductor_20
+    4300078: Short Tail-Conductor_21
+    4300080: Short Tail-Conductor Substrate
+    4300082: SolderTab
+    4300084: SolderTab_2
+    4300086: Short Tail-Rear Adhesive_2
+    4300088: Short Tail-Semi Substrate_2
+    4300090: Short Tail-Semi_2
+    4300092: Short Tail-Spacer_2
+    4300094: Short Tail-Conductor_22
+    4300096: Short Tail-Conductor_23
+    4300098: Short Tail-Conductor_24
+    4300100: Short Tail-Conductor_25
+    4300102: Short Tail-Conductor_26
+    4300104: Short Tail-Conductor_27
+    4300106: Short Tail-Conductor_28
+    4300108: Short Tail-Conductor_29
+    4300110: Short Tail-Conductor_30
+    4300112: Short Tail-Conductor_31
+    4300114: Short Tail-Conductor_32
+    4300116: Short Tail-Conductor_33
+    4300118: Short Tail-Conductor_34
+    4300120: Short Tail-Conductor_35
+    4300122: Short Tail-Conductor_36
+    4300124: Short Tail-Conductor_37
+    4300126: Short Tail-Conductor_38
+    4300128: Short Tail-Conductor_39
+    4300130: Short Tail-Conductor_40
+    4300132: Short Tail-Conductor_41
+    4300134: Short Tail-Conductor_42
+    4300136: Short Tail-Conductor Substrate_2
+    4300138: SolderTab_3
+    4300140: SolderTab_4
+    4300142: SolderTab_5
+    4300144: SolderTab_6
+    4300146: Short Tail-Conductor Substrate_3
+    4300148: Short Tail-Conductor_43
+    4300150: Short Tail-Conductor_44
+    4300152: Short Tail-Conductor_45
+    4300154: Short Tail-Conductor_46
+    4300156: Short Tail-Conductor_47
+    4300158: Short Tail-Conductor_48
+    4300160: Short Tail-Conductor_49
+    4300162: Short Tail-Conductor_50
+    4300164: Short Tail-Conductor_51
+    4300166: Short Tail-Conductor_52
+    4300168: Short Tail-Conductor_53
+    4300170: Short Tail-Conductor_54
+    4300172: Short Tail-Conductor_55
+    4300174: Short Tail-Conductor_56
+    4300176: Short Tail-Conductor_57
+    4300178: Short Tail-Conductor_58
+    4300180: Short Tail-Conductor_59
+    4300182: Short Tail-Conductor_60
+    4300184: Short Tail-Conductor_61
+    4300186: Short Tail-Conductor_62
+    4300188: Short Tail-Conductor_63
+    4300190: Short Tail-Spacer_3
+    4300192: Short Tail-Semi_3
+    4300194: Short Tail-Semi Substrate_3
+    4300196: Short Tail-Rear Adhesive_3
+    4300198: SolderTab_7
+    4300200: SolderTab_8
+    4300202: Short Tail-Conductor Substrate_4
+    4300204: Short Tail-Conductor_64
+    4300206: Short Tail-Conductor_65
+    4300208: Short Tail-Conductor_66
+    4300210: Short Tail-Conductor_67
+    4300212: Short Tail-Conductor_68
+    4300214: Short Tail-Conductor_69
+    4300216: Short Tail-Conductor_70
+    4300218: Short Tail-Conductor_71
+    4300220: Short Tail-Conductor_72
+    4300222: Short Tail-Conductor_73
+    4300224: Short Tail-Conductor_74
+    4300226: Short Tail-Conductor_75
+    4300228: Short Tail-Conductor_76
+    4300230: Short Tail-Conductor_77
+    4300232: Short Tail-Conductor_78
+    4300234: Short Tail-Conductor_79
+    4300236: Short Tail-Conductor_80
+    4300238: Short Tail-Conductor_81
+    4300240: Short Tail-Conductor_82
+    4300242: Short Tail-Conductor_83
+    4300244: Short Tail-Conductor_84
+    4300246: Short Tail-Spacer_4
+    4300248: Short Tail-Semi_4
+    4300250: Short Tail-Semi Substrate_4
+    4300252: Short Tail-Rear Adhesive_4
+    4300254: Object_10
+    4300256: Object_11
+    4300258: Object_12
+    4300260: Object_13
+  externalObjects: {}
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    useSRGBMaterialColor: 1
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 0
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+    legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
+    blendShapeNormalImportMode: 1
+    normalSmoothingSource: 0
+  importAnimation: 0
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
