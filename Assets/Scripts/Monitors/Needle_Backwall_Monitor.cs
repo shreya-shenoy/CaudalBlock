@@ -32,10 +32,14 @@ public class Needle_Backwall_Monitor : MonoBehaviour
         if ((!monitoring)||BackwallDetected)
             return;
         //Debug.DrawLine(needleTip.transform.position, needleHub.transform.position, Color.red, 2.0f);
-
+        //Debug.DrawRay(vessel.position, needleHub.transform.position - needleTip.transform.position, Color.red, 2.0f);
+        //RaycastHit hit = default(RaycastHit);
+       
         if (Physics.Raycast(needleTip.transform.position, needleHub.transform.position - needleTip.transform.position, distance, vessel)){
             Debug.Log("BACKWALL");
             BackwallDetected = true;
+            
+            
         }
             
         

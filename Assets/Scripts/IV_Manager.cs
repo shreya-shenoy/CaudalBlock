@@ -768,9 +768,9 @@ public class IV_Manager : MonoBehaviour
         RaycastHit hit;
 
         if((Physics.Raycast(needleHub.transform.position, needleTip.transform.position - needleHub.transform.position, out hit,
-            Vector3.Distance(needleTip.transform.position, needleHub.transform.position), 1 << LayerMask.NameToLayer("Vein"))) &&
+            Vector3.Distance(needleTip.transform.position, needleHub.transform.position), 1 << LayerMask.NameToLayer("Epidural"))) &&
             (!(Physics.Raycast(needleTip.transform.position, needleHub.transform.position - needleTip.transform.position,
-            Vector3.Distance(needleTip.transform.position, needleHub.transform.position), 1 << LayerMask.NameToLayer("Vein")))))
+            Vector3.Distance(needleTip.transform.position, needleHub.transform.position), 1 << LayerMask.NameToLayer("Epidural")))))
         {
             veinHitName = hit.collider.name;
             needleVeinAngleAtPuncture = Vector3.Angle(needleHub.transform.position - needleTip.transform.position, hit.normal);
