@@ -49,7 +49,7 @@ public class BackwallDetector : MonoBehaviour
     void Start()
     {
 
-        Mask = LayerMask.GetMask("Compressible");
+        Mask = LayerMask.GetMask("Epidural");
 
         VeinMesh = GetComponent<MeshFilter>().mesh;
         vertices = VeinMesh.vertices;

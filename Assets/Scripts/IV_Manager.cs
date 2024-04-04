@@ -997,7 +997,7 @@ public class IV_Manager : MonoBehaviour
     {
         RaycastHit veinHit;
         Physics.Raycast(needleHub.transform.position, needleTip.transform.position - needleHub.transform.position, out veinHit,
-            Vector3.Distance(needleTip.transform.position, needleHub.transform.position), 1 << LayerMask.NameToLayer("Vein"));
+            Vector3.Distance(needleTip.transform.position, needleHub.transform.position), 1 << LayerMask.NameToLayer("Epidural"));
         return veinHit.transform.gameObject;
     }
 
