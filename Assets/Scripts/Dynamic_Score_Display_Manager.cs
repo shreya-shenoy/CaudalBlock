@@ -13,7 +13,7 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
             Destroy(ME);
         ME = this;
     }
-
+    
     //[Header("-----Static Replay Screen Toggles-----")]
     [Header("-----Toggles-----")]
     [SerializeField]
@@ -34,6 +34,8 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
     public float veinAccessTime, cathStartedAdvanceTime, tourniquetAppliedTime, tourniquetRemovedTime, scoreMeButtonTime;
     public float moveDistanceCath, moveDistanceAccess;
     public string needleVeinLocationAtCathAdvance;
+    public float entryAngleDisplay; 
+    public Text entryAngleText;
 
 
     //[Header("-----Active Replay Screen Toggles-----")]
@@ -113,7 +115,7 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
             tourniquetToggle.isOn = false;
             tourniquetRemovedToggle.isOn = false;
         }
-
+        Debug.Log("Move Distance Access:" + moveDistanceAccess.ToString());
 
         // if (IV_Manager.ME.properTourniquetRemoval)  //Tourniquet_Pressure_Monitor.ME.LastTimeApplied > -1 && veinAccessTime < tourniquetRemovedTime)
         // {
@@ -228,7 +230,11 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
         backwallToggle.isOn = !Needle_Backwall_Monitor.ME.BackwallDetected;
 
         //tourniquetRemovedToggle.isOn = Tourniquet_Pressure_Monitor.ME.LastTimeRemoved > -1; 
+        entryAngleDisplay = IV_Manager.ME.needleSkinAngleAtPuncture;
         
+        entryAngleText.text = "Entry Angle: " + entryAngleDisplay.ToString("0.0");
+    
+                
         goodEntryAngle = IV_Manager.ME.needleSkinAngleAtPuncture > 40f && IV_Manager.ME.needleSkinAngleAtPuncture < 50f;
         
         Debug.Log("Entry Angle:" + goodEntryAngle + IV_Manager.ME.needleSkinAngleAtPuncture);
@@ -304,6 +310,7 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
         spreadsheetLine = spreadsheetLine + needleVeinLocationAtCathAdvance.ToString() + "|";
         spreadsheetLine = spreadsheetLine + moveDistanceAccess.ToString() + "|";
         spreadsheetLine = spreadsheetLine + moveDistanceCath.ToString() + "|";
+        Debug.Log("Move Distance Access:" + moveDistanceAccess.ToString());
         if (Mathf.Abs(needleBevelAngle) > 30)
         {
             spreadsheetLine = spreadsheetLine + "True|";

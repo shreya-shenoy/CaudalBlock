@@ -58,6 +58,9 @@ public class IV_Manager : MonoBehaviour
     public GameObject vein6mm, vein4mm, vein2mm;
     public GameObject vessels6mm, vessels4mm, vessels2mm;
     private GameObject ProtoVein6mm, ProtoVein4mm, ProtoVein2mm;
+    public float needleDepth = 0;
+    public Vector3 needleCurrentPos;
+    public Vector3 needleAtStart;
 
     public float deviationUSMidline;
 
@@ -604,17 +607,27 @@ public class IV_Manager : MonoBehaviour
             if (NeedleInVein())
             {
                 //Microcontroller_Manager.ME.SendCommand(Microcontroller_Manager.COMMAND.BlueLight);
-                    
+                
                 AdvanceCatheter();
+                
                 Debug.Log("Confirmed Hit!!!!");
                 //BeginProcedure();
 
             }
         }
         if(currentStep==STEP.ADVANCE_CATHETER)
+        Dynamic_Score_Display_Manager.ME.moveDistanceAccess = Vector3.Distance(needleTipPosAtAccess, needleTipPosAtCathStart);
+        //Debug.Log("Catheter Distance" + Dynamic_Score_Display_Manager.ME.moveDistanceAccess);
+        needleDepth = 0;
+        //needleTipPosAtCathStart = needleTip.transform.position;
+        //Debug.Log("NeedleTipPosAtAccess: " + needleTipPosAtAccess + "NeedleTipPosAtCathStart" + needleTipPosAtCathStart);
+        needleCurrentPos = needleTip.transform.position;
+        needleDepth = Vector3.Distance(needleAtStart, needleCurrentPos);
+        Debug.Log("Needle Depth" + needleDepth);
         {   if(Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance < 1)
             {
                 needleTipPosAtCathStart = needleTip.transform.position;
+                Debug.Log("NeedleTipPosAtAccess: " + needleTipPosAtAccess + "NeedleTipPosAtCathStart" + needleTipPosAtCathStart);
                 Dynamic_Score_Display_Manager.ME.moveDistanceAccess = Vector3.Distance(needleTipPosAtAccess, needleTipPosAtCathStart);
                  if (NeedleInInnerThird())
                 {
@@ -642,7 +655,7 @@ public class IV_Manager : MonoBehaviour
                     }
                 }
 
-            if(Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance > 2)// 4)//15) //this is the distance the cath travels to be considered "off" the needle
+            if(Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance > 100000000)// 4)//15) //this is the distance the cath travels to be considered "off" the needle
             {
                 RemoveTourniquet();
                 needleTipPosAtCathEnd = needleTip.transform.position;
@@ -864,6 +877,7 @@ public class IV_Manager : MonoBehaviour
     void AdvanceCatheter()
     {
         Debug.Log("AdvacenCath");///TESTING REMOVE
+        needleAtStart = needleTip.transform.position;
         currentStep = STEP.ADVANCE_CATHETER;
         //Toast.Dismiss();
         //Toast.Show(this, "Advance catheter.", 5, Toast.Type.MESSAGE, 30, Toast.Gravity.BOTTOM, "Advance catheter.");
