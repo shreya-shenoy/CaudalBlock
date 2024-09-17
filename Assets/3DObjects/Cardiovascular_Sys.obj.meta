@@ -1,11 +1,19 @@
 fileFormatVersion: 2
 guid: bdd23e663d1e21d4bbeb976128ca406d
 ModelImporter:
+<<<<<<< HEAD
   serializedVersion: 20200
   internalIDToNameTable: []
   externalObjects: {}
   materials:
     materialImportMode: 1
+=======
+  serializedVersion: 25
+  internalIDToNameTable: []
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+>>>>>>> a2898942c5e8ada7fa02d08044f9537b47a45cd5
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -31,25 +39,38 @@ ModelImporter:
     extraExposedTransformPaths: []
     extraUserProperties: []
     clipAnimations: []
+<<<<<<< HEAD
     isReadable: 1
+=======
+    isReadable: 0
+>>>>>>> a2898942c5e8ada7fa02d08044f9537b47a45cd5
   meshes:
     lODScreenPercentages: []
     globalScale: 1
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+<<<<<<< HEAD
     sortHierarchyByName: 1
+=======
+>>>>>>> a2898942c5e8ada7fa02d08044f9537b47a45cd5
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+<<<<<<< HEAD
     fileIdsGeneration: 1
+=======
+>>>>>>> a2898942c5e8ada7fa02d08044f9537b47a45cd5
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
     keepQuads: 0
     weldVertices: 1
+<<<<<<< HEAD
     bakeAxisConversion: 0
+=======
+>>>>>>> a2898942c5e8ada7fa02d08044f9537b47a45cd5
     preserveHierarchy: 0
     skinWeightsMode: 0
     maxBonesPerVertex: 4
@@ -59,9 +80,12 @@ ModelImporter:
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+<<<<<<< HEAD
     secondaryUVMarginMethod: 0
     secondaryUVMinLightmapResolution: 40
     secondaryUVMinObjectScale: 1
+=======
+>>>>>>> a2898942c5e8ada7fa02d08044f9537b47a45cd5
     secondaryUVPackMargin: 4
     useFileScale: 1
   tangentSpace:
@@ -74,6 +98,10 @@ ModelImporter:
     normalSmoothingSource: 0
   referencedClips: []
   importAnimation: 1
+<<<<<<< HEAD
+=======
+  copyAvatar: 0
+>>>>>>> a2898942c5e8ada7fa02d08044f9537b47a45cd5
   humanDescription:
     serializedVersion: 3
     human: []
@@ -91,11 +119,16 @@ ModelImporter:
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+<<<<<<< HEAD
   autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
   avatarSetup: 0
   addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+=======
+  animationType: 0
+  humanoidOversampling: 1
+>>>>>>> a2898942c5e8ada7fa02d08044f9537b47a45cd5
   additionalBone: 0
   userData: 
   assetBundleName: 
