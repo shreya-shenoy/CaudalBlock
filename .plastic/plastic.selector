@@ -1,0 +1,4 @@
+repository "SMARTS-SDK-UnityTest@CaudalBlock@cloud"
+  path "/"
+    br "/main"
+    co "/main"
