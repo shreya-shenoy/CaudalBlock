@@ -623,17 +623,9 @@ public class IV_Manager : MonoBehaviour
         //Debug.Log("NeedleTipPosAtAccess: " + needleTipPosAtAccess + "NeedleTipPosAtCathStart" + needleTipPosAtCathStart);
         needleCurrentPos = needleTip.transform.position;
         needleDepth = Vector3.Distance(needleAtStart, needleCurrentPos);
-<<<<<<< HEAD
         {   if(Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance < 1)
             {
                 needleTipPosAtCathStart = needleTip.transform.position;
-=======
-        Debug.Log("Needle Depth" + needleDepth);
-        {   if(Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance < 1)
-            {
-                needleTipPosAtCathStart = needleTip.transform.position;
-                Debug.Log("NeedleTipPosAtAccess: " + needleTipPosAtAccess + "NeedleTipPosAtCathStart" + needleTipPosAtCathStart);
->>>>>>> a2898942c5e8ada7fa02d08044f9537b47a45cd5
                 Dynamic_Score_Display_Manager.ME.moveDistanceAccess = Vector3.Distance(needleTipPosAtAccess, needleTipPosAtCathStart);
                  if (NeedleInInnerThird())
                 {
