@@ -20,11 +20,10 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
     Toggle tourniquetToggle = null;
     [SerializeField]
     Toggle handSlapToggle = null, tractionToggle = null,
-        needleEntryToggle = null, backwallToggle = null, entryAngleToggle = null,
-        goodCatheterAdvancementToggle = null, tourniquetRemovedToggle = null;
+        needleEntryToggle = null, backwallToggle = null, entryAngleToggle = null, tourniquetRemovedToggle = null;
 
     private string spreadsheetLine = "";
-    public bool tourniquetUsed, handSlapUsed, handTractionUsed, needleAccessedVein, needleBackwalled, goodEntryAngle, canReset, goodCathAdvancement, tourniquetRemoved, cathInVeinScoreMe;
+    public bool tourniquetUsed, handSlapUsed, handTractionUsed, needleAccessedVein, needleBackwalled, goodEntryAngle, canReset, tourniquetRemoved, cathInVeinScoreMe;
     public float needleEntryAngle; //For vein specifically
     public float needleSkinEntryAngle; //for skin specifically
     public float needleBevelAngle; //the bevel's rotation. In this case using the local z axis of the needle.
@@ -59,15 +58,12 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
         needleEntryToggle.isOn = false;
         backwallToggle.isOn = false;
         entryAngleToggle.isOn = false;
-        goodCatheterAdvancementToggle.isOn = false;
         tourniquetRemovedToggle.isOn = false;
-
         tourniquetUsed = false;
         handSlapUsed = false;
         handTractionUsed = false;
         needleAccessedVein = false;
         needleBackwalled = false;
-        goodCathAdvancement = false;
         goodEntryAngle = false;
         canReset = true;
         tourniquetRemoved = false;
@@ -205,14 +201,6 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
             needleBackwalled = true;
         }
           
-        if(goodCathAdvancement)
-        {
-            goodCatheterAdvancementToggle.isOn = true;
-        }
-        else
-        {
-            goodCatheterAdvancementToggle.isOn = false;
-        }
         
         if(UltrasoundManagerSource.ME.UltrasoundScreenSize == UltrasoundManagerSource.SCREEN_DIMENSIONS.SMALL)
         {
@@ -306,7 +294,6 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
         }*/
         spreadsheetLine = spreadsheetLine + tourniquetUsed.ToString() + "|";
         //spreadsheetLine = spreadsheetLine + cathInVeinScoreMe.ToString() + "|";
-        spreadsheetLine = spreadsheetLine + goodCathAdvancement.ToString() + "|";
         spreadsheetLine = spreadsheetLine + needleVeinLocationAtCathAdvance.ToString() + "|";
         spreadsheetLine = spreadsheetLine + moveDistanceAccess.ToString() + "|";
         spreadsheetLine = spreadsheetLine + moveDistanceCath.ToString() + "|";

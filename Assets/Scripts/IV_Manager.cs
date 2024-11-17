@@ -19,11 +19,13 @@ public class IV_Manager : MonoBehaviour
     [SerializeField]
     GameObject background = null, completeScreen = null, returnToMenuOverlay = null, activeReplayOverlay = null, testSelectionScreen;
     [SerializeField]
-    GameObject needleTip = null, needleHub = null, bevelDirectionObj, cathTip, cathHub, usProbe;
+    //GameObject needleTip = null, needleHub = null, bevelDirectionObj, cathTip, cathHub, usProbe;
+    GameObject needleTip = null, needleHub = null, bevelDirectionObj, usProbe;
     [SerializeField]
     GameObject[] handVesselArray = new GameObject[0], armVesselArray = new GameObject[0];
     [SerializeField]
-    GameObject catheter = null, catheterHub, proxyTracker = null, needle = null;
+    //GameObject catheter = null, catheterHub, proxyTracker = null, needle = null;
+    GameObject proxyTracker = null, needle = null;
     public bool usSizeLarge = true;
     public GameObject usScreenSize;
     public RectTransform usLarge, usSmall;
@@ -54,7 +56,8 @@ public class IV_Manager : MonoBehaviour
     public GameObject cathStartDistanceWarning;
 
     public Stopwatch procedureTimer;
-    private Vector3 needleTipPosAtCathStart, needleTipPosAtCathEnd, needleTipPosAtAccess;
+    //private Vector3 needleTipPosAtCathStart, needleTipPosAtCathEnd, needleTipPosAtAccess;
+    private Vector3 needleTipPosAtAccess;
     public GameObject vein6mm, vein4mm, vein2mm;
     public GameObject vessels6mm, vessels4mm, vessels2mm;
     private GameObject ProtoVein6mm, ProtoVein4mm, ProtoVein2mm;
@@ -68,7 +71,7 @@ public class IV_Manager : MonoBehaviour
 
     private void Awake()
     {
-        if(ME!=null)
+        if (ME != null)
         {
             Destroy(ME);
         }
@@ -89,7 +92,7 @@ public class IV_Manager : MonoBehaviour
         background.SetActive(false);
         armOrientationSelection.SetActive(false);
         completeScreen.SetActive(false);
-        optionsButton.SetActive(false); 
+        optionsButton.SetActive(false);
         mainUICanvas.enabled = false;
         returnToMenuOverlay.SetActive(false);
         activeReplayOverlay.SetActive(false);
@@ -110,7 +113,7 @@ public class IV_Manager : MonoBehaviour
 
         // Vein Linear Distance Monitor
         /////CHANGED FROM NeedleTipFurther (THE BULK RESCORE TIP) TO NeedleTip for demo on 04.18.2018
-        VeinLineMonitor = new LinearTrajectoryMonitor(needleHub, needleTip, conversion, veinLayer); 
+        VeinLineMonitor = new LinearTrajectoryMonitor(needleHub, needleTip, conversion, veinLayer);
         VeinLineMonitor.BoundryCorrectionFactor = 0.6f;
         SkinLineMonitor = new LinearTrajectoryMonitor(needleHub, needleTip, conversion, skinLayer);
 
@@ -199,7 +202,7 @@ public class IV_Manager : MonoBehaviour
     public Text loadingStatus;
     public static bool start;
     public void BeginSimulation(int mode)
-    {       
+    {
         //Mode_Manager.ME.CurrentMode = (Mode_Manager.MODE)mode;
         startupCanvas.enabled = false;
         mainUICanvas.enabled = true;
@@ -207,7 +210,7 @@ public class IV_Manager : MonoBehaviour
         //background.SetActive(true);
 
         //modeSelection.SetActive(true);
-        
+
         SetUsername(userIDInput.GetComponent<InputField>().text);
         testmode = mode;
         ProcedureTestManager.ME.longAxisCompleted = false;
@@ -215,7 +218,7 @@ public class IV_Manager : MonoBehaviour
 
         if (mode == 2)
         {
-            //ProcedureTestManager.ME.DisableButtons(ProcedureTestManager.testType.notstarted, mode);
+            ProcedureTestManager.ME.DisableButtons(ProcedureTestManager.testType.notstarted, mode);
             ProcedureTestManager.ME.DisableButtons(0, mode);
             CreateITDataFilePath();
             LogManager.ME.CreateHistoryFile();
@@ -228,7 +231,7 @@ public class IV_Manager : MonoBehaviour
             CreateITDataFilePath();
             LogManager.ME.CreateHistoryFile();
         }
-        
+
         ProcedureTestManager.ME.LoadCheckpoint(mode);
         testSelectionScreen.SetActive(true);
 
@@ -236,7 +239,7 @@ public class IV_Manager : MonoBehaviour
 
     public void SelectArmOrientation()
     {
-        
+
         background.SetActive(false);
 
         armOrientationSelection.SetActive(true);
@@ -287,11 +290,11 @@ public class IV_Manager : MonoBehaviour
     //public GameObject handSlap;
     public static bool tournOnOff;
 
-    
+
 
     public void SelectArmOrientation(int orientation)
     {
-       
+
         currentOrientation = (ARM_ORIENTATION)orientation;
         //BeginProcedure();
         armOrientationSelection.SetActive(false);
@@ -302,7 +305,7 @@ public class IV_Manager : MonoBehaviour
 
     public void SelectTarget(int target)
     {
-        if(target == 0)
+        if (target == 0)
         {
             targetVein = true;
             targetArtery = false;
@@ -355,8 +358,8 @@ public class IV_Manager : MonoBehaviour
         currentStep = STEP.INSERT_NEEDLE_VEIN;
         Debug.Log("IN BEGIN PROCEDURE");
         //Toast.Dismiss();
-       // Toast.Show(this, "Place the IV catheter into the vein.", 10, Toast.Type.MESSAGE, 30, Toast.Gravity.BOTTOM, "Place the IV catheter into the vein.");
-       // Toast.Show(this, "When finished press spacebar for assessment.", 500, Toast.Type.MESSAGE, 30);
+        // Toast.Show(this, "Place the IV catheter into the vein.", 10, Toast.Type.MESSAGE, 30, Toast.Gravity.BOTTOM, "Place the IV catheter into the vein.");
+        // Toast.Show(this, "When finished press spacebar for assessment.", 500, Toast.Type.MESSAGE, 30);
         start = false;
 
         Mode_Manager.ME.CurrentMode = (Mode_Manager.MODE)3; //Mode 3 is study mode. Currently being set here to get recordmanager to begin recording
@@ -373,13 +376,13 @@ public class IV_Manager : MonoBehaviour
         {
             optionsButton.SetActive(true);
         }
-        
-        
+
+
         completeScreen.SetActive(false);
         background.SetActive(false);
         targetSelection.SetActive(false);
 
-        if (ProcedureTestManager.ME.currentTest  == ProcedureTestManager.testType.longaxis6 || ProcedureTestManager.ME.currentTest == ProcedureTestManager.testType.shortaxis6)
+        /*if (ProcedureTestManager.ME.currentTest  == ProcedureTestManager.testType.longaxis6 || ProcedureTestManager.ME.currentTest == ProcedureTestManager.testType.shortaxis6)
         {
             Record_Manager.ME.AddInitialPosition("6 mm vessels", vessels6mm.transform.position, vessels6mm.transform.rotation.eulerAngles);      
         }
@@ -390,7 +393,7 @@ public class IV_Manager : MonoBehaviour
         else if (ProcedureTestManager.ME.currentTest == ProcedureTestManager.testType.longaxis2 || ProcedureTestManager.ME.currentTest == ProcedureTestManager.testType.shortaxis2)
         {
             Record_Manager.ME.AddInitialPosition("2 mm vessels", vessels2mm.transform.position, vessels2mm.transform.rotation.eulerAngles);
-        }
+        }*/
 
         properTourniquetRemoval = false;
         Tourniquet_Pressure_Monitor.ME.LastTimeApplied = -1;
@@ -427,17 +430,20 @@ public class IV_Manager : MonoBehaviour
         SkinLineMonitor.Update();
         procedureTimer.Update();
 
+        if (currentStep == STEP.NOT_SET && ProcedureTestManager.ME.currentTest == ProcedureTestManager.testType.shortaxis4)
+        {
+            currentStep = STEP.INSERT_NEEDLE_VEIN;
+        }
 
-        
         // if(Tourniquet_Pressure_Monitor.ME.currentPressure >= Tourniquet_Pressure_Monitor.ME.minPressureForPassing)
         // {   
         //     properTourniquetRemoval = false;
         //     if (!tourniquetApplied)
         //     {
         //         Dynamic_Score_Display_Manager.ME.tourniquetAppliedTime = procedureTimer.Seconds;
-            
+
         //         Dynamic_Score_Display_Manager.ME.tourniquetRemoved = false;
-                
+
         //         tourniquetApplied = true;
         //     }
         // }
@@ -456,7 +462,7 @@ public class IV_Manager : MonoBehaviour
         //     }
 
         //     // Dynamic_Score_Display_Manager.ME. = Tourniquet_Pressure_Monitor.ME.LastTimeRemoved;
-        
+
         //     if (Dynamic_Score_Display_Manager.ME.veinAccessTime < Dynamic_Score_Display_Manager.ME.tourniquetRemovedTime)
         //     {
         //         properTourniquetRemoval = true;
@@ -466,7 +472,7 @@ public class IV_Manager : MonoBehaviour
         //         properTourniquetRemoval = false; 
         //     }
         // }
-        
+
 
         if (Tourniquet_Pressure_Monitor.ME.currentPressure >= Tourniquet_Pressure_Monitor.ME.minPressureForPassing && lastMeasuredPressure < Tourniquet_Pressure_Monitor.ME.minPressureForPassing)
         {
@@ -510,32 +516,32 @@ public class IV_Manager : MonoBehaviour
         {
             needleSkinAngleAtPuncture = NeedleSkinAngle();
             Debug.Log("Entry Skin Angle: " + needleSkinAngleAtPuncture);
-            print("cath needle distance: " + Vector3.Distance(catheterHub.transform.position, needleHub.transform.position));
-            if(Vector3.Distance(catheterHub.transform.position, needleHub.transform.position) > maxCathStartDistance)
-            {
-                cathStartDistanceWarning.SetActive(true); // TEST THIS
-            }
-            else
-            {
-                // cathStartDistanceWarning.SetActive(false); // Dave Lizdas 12/13/21: resetting this message here, at skin puncture, is annoying.
-                // the message stays on and overlaps many user interface elements unintentionally. 
-            }
+            //print("cath needle distance: " + Vector3.Distance(catheterHub.transform.position, needleHub.transform.position));
+            //if(Vector3.Distance(catheterHub.transform.position, needleHub.transform.position) > maxCathStartDistance)
+            //{
+            //    cathStartDistanceWarning.SetActive(true); // TEST THIS
+            //}
+            //else
+            // {
+            // cathStartDistanceWarning.SetActive(false); // Dave Lizdas 12/13/21: resetting this message here, at skin puncture, is annoying.
+            // the message stays on and overlaps many user interface elements unintentionally. 
+            //}
         }
 
         if (!SkinLineMonitor.Puncture) // Dave Lizdas 12/13/21
         {
             cathStartDistanceWarning.SetActive(false); // Dave Lizdas: just turn the warning off when the needle isn't in the skin. 
         }
-         
+
 
         if (currentOrientation == (ARM_ORIENTATION)1)//hand up
         {
             //small delay before veins are initialized to allow for atc to connect
-            if (up1 == true && frames1>5)
+            if (up1 == true && frames1 > 5)
             {
                 //temp1 = GameObject.Find("Deformable Vein 1");
                 handUpVeins = GameObject.FindGameObjectsWithTag("handUp");
-                
+
                 up1 = false;
 
                 //TJ 12/2/2020 - Added since anatomy had to be rotated due to MRT tracking being reversed compared to SRT tracking
@@ -553,14 +559,14 @@ public class IV_Manager : MonoBehaviour
             foreach (GameObject handUpVein in handUpVeins)
             {
                 handUpVein.SetActive(true);
-            }            
+            }
         }
         if (currentOrientation == (ARM_ORIENTATION)2)//hand down
         {
-            if (down1 == true && frames2>5)
+            if (down1 == true && frames2 > 5)
             {
                 handDownVeins = GameObject.FindGameObjectsWithTag("handDown");
-                
+
                 down1 = false;
 
                 //TJ 12/2/2020 - Added since anatomy had to be rotated due to MRT tracking being reversed compared to SRT tracking
@@ -583,7 +589,7 @@ public class IV_Manager : MonoBehaviour
                 handDownVein.SetActive(true);
             }
         }
-        
+
         //usScreen.SetActive(true);
 
         //for detection ultrasound probe pressure
@@ -592,95 +598,99 @@ public class IV_Manager : MonoBehaviour
         {
             if ((int.Parse(IVMicrocontroller.ME.MicrocontrollerData[1]) > 10) || (int.Parse(IVMicrocontroller.ME.MicrocontrollerData[2]) > 10))
             {
-              //   usScreen.SetActive(true); US should always be on for study. Moving to outside the check
+                //   usScreen.SetActive(true); US should always be on for study. Moving to outside the check
                 usProbeUsed = true;
             }
 
-        } catch (Exception e)
-        {
-          //  usScreen.SetActive(false);
         }
-        
-        if (currentStep==STEP.INSERT_NEEDLE_VEIN)
+        catch (Exception e)
+        {
+            //  usScreen.SetActive(false);
+        }
+
+        if (currentStep == STEP.INSERT_NEEDLE_VEIN)
         {
             //Toast.Dismiss();
             if (NeedleInVein())
             {
                 //Microcontroller_Manager.ME.SendCommand(Microcontroller_Manager.COMMAND.BlueLight);
-                
-                AdvanceCatheter();
-                
+
+                //AdvanceCatheter();
+
                 Debug.Log("Confirmed Hit!!!!");
-                //BeginProcedure();
+                BeginProcedure();
 
             }
         }
-        if(currentStep==STEP.ADVANCE_CATHETER)
-        Dynamic_Score_Display_Manager.ME.moveDistanceAccess = Vector3.Distance(needleTipPosAtAccess, needleTipPosAtCathStart);
+
+        //if(currentStep==STEP.ADVANCE_CATHETER)
+        //Dynamic_Score_Display_Manager.ME.moveDistanceAccess = Vector3.Distance(needleTipPosAtAccess, needleTipPosAtCathStart);
         //Debug.Log("Catheter Distance" + Dynamic_Score_Display_Manager.ME.moveDistanceAccess);
-        needleDepth = 0;
+        //needleDepth = 0;
         //needleTipPosAtCathStart = needleTip.transform.position;
         //Debug.Log("NeedleTipPosAtAccess: " + needleTipPosAtAccess + "NeedleTipPosAtCathStart" + needleTipPosAtCathStart);
-        needleCurrentPos = needleTip.transform.position;
-        needleDepth = Vector3.Distance(needleAtStart, needleCurrentPos);
-        {   if(Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance < 1)
-            {
-                needleTipPosAtCathStart = needleTip.transform.position;
-                Dynamic_Score_Display_Manager.ME.moveDistanceAccess = Vector3.Distance(needleTipPosAtAccess, needleTipPosAtCathStart);
-                 if (NeedleInInnerThird())
-                {
-                    Dynamic_Score_Display_Manager.ME.needleVeinLocationAtCathAdvance = "Center";
-                }
-                else if (NeedleInMiddleThird())
-                {
-                    Dynamic_Score_Display_Manager.ME.needleVeinLocationAtCathAdvance = "Middle";
-                }
-                else
-                {
-                    Dynamic_Score_Display_Manager.ME.needleVeinLocationAtCathAdvance = "Outer";
-                }
-            }
+        //needleCurrentPos = needleTip.transform.position;
+        //needleDepth = Vector3.Distance(needleAtStart, needleCurrentPos);
+        //Debug.Log("Needle Depth" + needleDepth);
+        //{   //if(Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance < 1)
+        ///{
+        //  needleTipPosAtCathStart = needleTip.transform.position;
+        //Debug.Log("NeedleTipPosAtAccess: " + needleTipPosAtAccess + "NeedleTipPosAtCathStart" + needleTipPosAtCathStart);
+        // Dynamic_Score_Display_Manager.ME.moveDistanceAccess = Vector3.Distance(needleTipPosAtAccess, needleTipPosAtCathStart);
+        //   if (NeedleInInnerThird())
+        // {
+        //     Dynamic_Score_Display_Manager.ME.needleVeinLocationAtCathAdvance = "Center";
+        // }
+        // else if (NeedleInMiddleThird())
+        //  {
+        //      Dynamic_Score_Display_Manager.ME.needleVeinLocationAtCathAdvance = "Middle";
+        //  }
+        //   else
+        //  {
+        //     Dynamic_Score_Display_Manager.ME.needleVeinLocationAtCathAdvance = "Outer";
+        // }
+        //  }
 
-            if (Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance > 1 && Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance < 2)
-                {
-                    if (NeedleInVein())
-                    {
-                        Dynamic_Score_Display_Manager.ME.goodCathAdvancement = true;
-                    }
-                    else
-                    {
-                        Dynamic_Score_Display_Manager.ME.goodCathAdvancement = false;
-                    }
-                }
+        //if (Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance > 1 && Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance < 2)
+        //  {
+        //    if (NeedleInVein())
+        //    {
+        //       Dynamic_Score_Display_Manager.ME.goodCathAdvancement = true;
+        //   }
+        //else
+        // {
+        //     Dynamic_Score_Display_Manager.ME.goodCathAdvancement = false;
+        // }
+        //}
 
-            if(Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance > 100000000)// 4)//15) //this is the distance the cath travels to be considered "off" the needle
-            {
-                RemoveTourniquet();
-                needleTipPosAtCathEnd = needleTip.transform.position;
-                Dynamic_Score_Display_Manager.ME.moveDistanceCath = Vector3.Distance(needleTipPosAtCathStart, needleTipPosAtCathEnd);
-                Dynamic_Score_Display_Manager.ME.cathStartedAdvanceTime = procedureTimer.Seconds;
+        // if(Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance > 100000000)// 4)//15) //this is the distance the cath travels to be considered "off" the needle
+        // {
+        // RemoveTourniquet();
+        /* needleTipPosAtCathEnd = needleTip.transform.position;
+         Dynamic_Score_Display_Manager.ME.moveDistanceCath = Vector3.Distance(needleTipPosAtCathStart, needleTipPosAtCathEnd);
+         Dynamic_Score_Display_Manager.ME.cathStartedAdvanceTime = procedureTimer.Seconds;
 
-                Catheter_Advancement_Monitor.ME.EndAdvancmentMeasurement();
-                Catheter_Advancer_Axial.ME.EndScoringMaintainPosition();
-                ProxyCatheterToCatheterTransform.ME.DisableTrackingTransform();
-            }
-        }
+         Catheter_Advancement_Monitor.ME.EndAdvancmentMeasurement();
+         Catheter_Advancer_Axial.ME.EndScoringMaintainPosition();
+         ProxyCatheterToCatheterTransform.ME.DisableTrackingTransform();
+     }
+ }*/
 
         if (currentStep == STEP.REMOVE_TOURNIQUET)
         {
-            RemoveNeedle();            
+            RemoveNeedle();
         }
 
         if (Input.GetKeyDown(KeyCode.Space) && completeScreen.activeSelf == false && testSelectionScreen.activeSelf == false && startupCanvas.GetComponent<Canvas>().enabled == false)
         {
             //Made spacebar/complete process canvas screen only reachable if spacebar is pressed while the options button is available 10/24/22 -CS
 
-            Dynamic_Score_Display_Manager.ME.cathInVeinScoreMe = CathInVein();
-           // testCollider = GameObject.Find("Dynamic Vessel Target Vein 9").GetComponent<Collider>();
+            //Dynamic_Score_Display_Manager.ME.cathInVeinScoreMe = CathInVein();
+            // testCollider = GameObject.Find("Dynamic Vessel Target Vein 9").GetComponent<Collider>();
             //print(Vector3.Distance(testCollider.ClosestPoint(needleTip.transform.position), needleTip.transform.position));
             //print(testCollider.ClosestPointOnBounds(needleTip.transform.position));
             //print(needleTip.transform.position);
-            
+
             CompleteProcess();
 
         }
@@ -710,7 +720,7 @@ public class IV_Manager : MonoBehaviour
 
                 flipped = false;
 
-            }         
+            }
         }
 
         /*
@@ -724,7 +734,7 @@ public class IV_Manager : MonoBehaviour
 
         //turn on blue flashback if in vein
 
-        
+
         if (NeedleInVein())
         {
             IVMicrocontroller.ME.SendCommand(IVMicrocontroller.MicrocontrollerCommand.Microcontroller_Command_7);  // Turn on Blue LED
@@ -778,7 +788,7 @@ public class IV_Manager : MonoBehaviour
     {
         RaycastHit hit;
 
-        if((Physics.Raycast(needleHub.transform.position, needleTip.transform.position - needleHub.transform.position, out hit,
+        if ((Physics.Raycast(needleHub.transform.position, needleTip.transform.position - needleHub.transform.position, out hit,
             Vector3.Distance(needleTip.transform.position, needleHub.transform.position), 1 << LayerMask.NameToLayer("Epidural"))) &&
             (!(Physics.Raycast(needleTip.transform.position, needleHub.transform.position - needleTip.transform.position,
             Vector3.Distance(needleTip.transform.position, needleHub.transform.position), 1 << LayerMask.NameToLayer("Epidural")))))
@@ -789,7 +799,7 @@ public class IV_Manager : MonoBehaviour
         }
         else
         {
-         //   print("false");
+            //   print("false");
             return false;
         }
     }
@@ -838,7 +848,7 @@ public class IV_Manager : MonoBehaviour
     {
         RaycastHit hit;
 
-        if((Physics.Raycast(needleHub.transform.position, needleTip.transform.position - needleHub.transform.position, out hit,
+        if ((Physics.Raycast(needleHub.transform.position, needleTip.transform.position - needleHub.transform.position, out hit,
             Vector3.Distance(needleTip.transform.position, needleHub.transform.position), 1 << LayerMask.NameToLayer("Artery"))) &&
             (!(Physics.Raycast(needleTip.transform.position, needleHub.transform.position - needleTip.transform.position,
             Vector3.Distance(needleTip.transform.position, needleHub.transform.position), 1 << LayerMask.NameToLayer("Artery")))))
@@ -850,57 +860,57 @@ public class IV_Manager : MonoBehaviour
         }
         else
         {
-           // print("false");
+            // print("false");
 
             return false;
         }
     }
 
-    public bool CathInVein()
-    {
-        return (Physics.Raycast(cathHub.transform.position, cathTip.transform.position - cathHub.transform.position,
-            Vector3.Distance(cathTip.transform.position, cathHub.transform.position), 1 << LayerMask.NameToLayer("Vein"))) &&
-            (!(Physics.Raycast(cathTip.transform.position, cathHub.transform.position - cathTip.transform.position,
-            Vector3.Distance(cathTip.transform.position, cathHub.transform.position), 1 << LayerMask.NameToLayer("Vein"))));
-    }
+    /* public bool CathInVein()
+     {
+         return (Physics.Raycast(cathHub.transform.position, cathTip.transform.position - cathHub.transform.fposition,
+             Vector3.Distance(cathTip.transform.position, cathHub.transform.position), 1 << LayerMask.NameToLayer("Vein"))) &&
+             (!(Physics.Raycast(cathTip.transform.position, cathHub.transform.position - cathTip.transform.position,
+             Vector3.Distance(cathTip.transform.position, cathHub.transform.position), 1 << LayerMask.NameToLayer("Vein"))));
+     }*/
 
-    public bool CathInArtery()
-    {
-        return (Physics.Raycast(cathHub.transform.position, cathTip.transform.position - cathHub.transform.position,
-            Vector3.Distance(cathTip.transform.position, cathHub.transform.position), 1 << LayerMask.NameToLayer("Artery"))) &&
-            (!(Physics.Raycast(cathTip.transform.position, cathHub.transform.position - cathTip.transform.position,
-            Vector3.Distance(cathTip.transform.position, cathHub.transform.position), 1 << LayerMask.NameToLayer("Artery"))));
-    }
+    /* public bool CathInArtery()
+     {
+         return (Physics.Raycast(cathHub.transform.position, cathTip.transform.position - cathHub.transform.position,
+             Vector3.Distance(cathTip.transform.position, cathHub.transform.position), 1 << LayerMask.NameToLayer("Artery"))) &&
+             (!(Physics.Raycast(cathTip.transform.position, cathHub.transform.position - cathTip.transform.position,
+             Vector3.Distance(cathTip.transform.position, cathHub.transform.position), 1 << LayerMask.NameToLayer("Artery"))));
+     }*/
 
-    void AdvanceCatheter()
-    {
-        Debug.Log("AdvacenCath");///TESTING REMOVE
-        needleAtStart = needleTip.transform.position;
-        currentStep = STEP.ADVANCE_CATHETER;
-        //Toast.Dismiss();
-        //Toast.Show(this, "Advance catheter.", 5, Toast.Type.MESSAGE, 30, Toast.Gravity.BOTTOM, "Advance catheter.");
-        GameObject veinHit = VeinHit();
-       // Catheter_Advancer_Axial.ME.StartScoring(veinHit);
-        Catheter_Advancement_Monitor.ME.StartAdvancementMeasurement(10, veinHit);
-        Debug.Log(veinHit.name);
-        if (!NeedleInVein())
-        {
-            Debug.Log("Needle has been detected to not be in vein!");
-            //NeedleOutCatheterAdvance();
-            currentStep = STEP.INSERT_NEEDLE_VEIN;
-            BeginProcedure();
-        } else
-        {
-            Debug.Log("Needle must be in vein!");
-        }
-        
-    }
+    //void AdvanceCatheter()
+    // {
+    //  Debug.Log("AdvacenCath");///TESTING REMOVE
+    // needleAtStart = needleTip.transform.position;
+    // currentStep = STEP.ADVANCE_CATHETER;
+    //Toast.Dismiss();
+    //Toast.Show(this, "Advance catheter.", 5, Toast.Type.MESSAGE, 30, Toast.Gravity.BOTTOM, "Advance catheter.");
+    //GameObject veinHit = VeinHit();
+    // Catheter_Advancer_Axial.ME.StartScoring(veinHit);
+    // Catheter_Advancement_Monitor.ME.StartAdvancementMeasurement(10, veinHit);
+    // Debug.Log(veinHit.name);
+    // if (!NeedleInVein())
+    //{
+    //    Debug.Log("Needle has been detected to not be in vein!");
+    //NeedleOutCatheterAdvance();
+    //    currentStep = STEP.INSERT_NEEDLE_VEIN;
+    //    BeginProcedure();
+    // } else
+    // {
+    //     Debug.Log("Needle must be in vein!");
+    //}
 
-    void NeedleOutCatheterAdvance()
-    {
-        currentStep = STEP.INSERT_NEEDLE_VEIN;
-        Catheter_Advancer_Axial.ME.EndScoringMaintainPosition();
-    }
+    //}
+
+    /* void NeedleOutCatheterAdvance()
+     {
+         currentStep = STEP.INSERT_NEEDLE_VEIN;
+         Catheter_Advancer_Axial.ME.EndScoringMaintainPosition();
+     }*/
 
     void RemoveTourniquet()
     {
@@ -918,19 +928,19 @@ public class IV_Manager : MonoBehaviour
         //Toast.Dismiss();
         //Toast.Show(this, "Remove Needle.", 5, Toast.Type.MESSAGE, 30, Toast.Gravity.BOTTOM, "Remove needle.");
 
-        Catheter_Advancement_Monitor.ME.EndAdvancmentMeasurement();
-        Catheter_Advancer_Axial.ME.EndScoringMaintainPosition();
-        ProxyCatheterToCatheterTransform.ME.DisableTrackingTransform();
+        // Catheter_Advancement_Monitor.ME.EndAdvancmentMeasurement();
+        // Catheter_Advancer_Axial.ME.EndScoringMaintainPosition();
+        //ProxyCatheterToCatheterTransform.ME.DisableTrackingTransform();
         //Catheter_Advancer_Axial.ME.EndScoring();
     }
-    
+
     public bool NeedleInSkin()
     {
         // needlePunctureSkin = true;
         return Physics.Raycast(needleHub.transform.position, needleTip.transform.position - needleHub.transform.position,
               Vector3.Distance(needleTip.transform.position, needleHub.transform.position), 1 << LayerMask.NameToLayer("Skin"));
-        
-   
+
+
     }
 
     public float NeedleSkinAngle()
@@ -941,18 +951,18 @@ public class IV_Manager : MonoBehaviour
             needleHub.transform.position, out layerHit,
             Vector3.Distance(needleTip.transform.position,
             needleHub.transform.position), skinLayer))
-            {
+        {
             return -1;
-            }
+        }
         else
-            {
-                needlePunctureSkin = true;
-                Debug.Log("Needle Punctured Skin");
-                Debug.Log("Puncture Angle:" + Vector3.Angle(needleHub.transform.position -
-                needleTip.transform.position, layerHit.normal));
-                return Vector3.Angle(needleHub.transform.position -
-                needleTip.transform.position, layerHit.normal);
-            }
+        {
+            needlePunctureSkin = true;
+            Debug.Log("Needle Punctured Skin");
+            Debug.Log("Puncture Angle:" + Vector3.Angle(needleHub.transform.position -
+            needleTip.transform.position, layerHit.normal));
+            return Vector3.Angle(needleHub.transform.position -
+            needleTip.transform.position, layerHit.normal);
+        }
     }
 
     void CompleteProcess()
@@ -960,7 +970,7 @@ public class IV_Manager : MonoBehaviour
         //Removes options button upon process completion 10/24/22 -CS
         usScreen.SetActive(false);
         optionsButton.SetActive(false);
-        Catheter_Advancer_Axial.ME.EndScoringResetCatheter();
+        // Catheter_Advancer_Axial.ME.EndScoringResetCatheter();
         Dynamic_Score_Display_Manager.ME.scoreMeButtonTime = procedureTimer.Seconds;
         currentStep = STEP.COMPLETED;  // DL - STEP.COMPLETED is not in the code anywhere else (nothing checks for this value specifically)
         //Toast.Dismiss();
@@ -976,8 +986,8 @@ public class IV_Manager : MonoBehaviour
         background.SetActive(true);
         returnToMenuOverlay.SetActive(false);
         activeReplayOverlay.SetActive(false);
-        ProxyCatheterToCatheterTransform.ME.EnableTrackingTransform();
-        
+        //ProxyCatheterToCatheterTransform.ME.EnableTrackingTransform();
+
         if (testmode == 3)
         {
             if (User_Manager.ME.Username.ToLower()[0] == 's' && Char.IsDigit(User_Manager.ME.Username[1]) && User_Manager.ME.Username.Length == 2 || User_Manager.ME.Username[0] == 's' && Char.IsDigit(User_Manager.ME.Username[1]) && Char.IsDigit(User_Manager.ME.Username[2]) && User_Manager.ME.Username.Length == 3)
@@ -990,16 +1000,16 @@ public class IV_Manager : MonoBehaviour
             }
             else if (User_Manager.ME.Username.ToLower()[0] == 's' && Char.IsDigit(User_Manager.ME.Username[1]) && User_Manager.ME.Username.Length == 2 || User_Manager.ME.Username[0] == 's' && Char.IsDigit(User_Manager.ME.Username[1]) && Char.IsDigit(User_Manager.ME.Username[2]) && User_Manager.ME.Username.Length == 3)
             {
-                replayProcedureButton.SetActive(false);   
+                replayProcedureButton.SetActive(false);
             }
             else if (User_Manager.ME.Username.ToLower()[0] == 'l' && Char.IsDigit(User_Manager.ME.Username[1]) && User_Manager.ME.Username.Length == 2 || User_Manager.ME.Username[0] == 'l' && Char.IsDigit(User_Manager.ME.Username[1]) && Char.IsDigit(User_Manager.ME.Username[2]) && User_Manager.ME.Username.Length == 3)
             {
-                replayProcedureButton.SetActive(false); 
+                replayProcedureButton.SetActive(false);
             }
         }
         else
         {
-                replayProcedureButton.SetActive(true); 
+            replayProcedureButton.SetActive(true);
         }
 
         //Record_Manager.ME.ReplayRecordedData();
@@ -1023,11 +1033,11 @@ public class IV_Manager : MonoBehaviour
         float handMultiplier = slapMultiplier && tourniquetMultiplier ? 1.44f : slapMultiplier || tourniquetMultiplier ? 1.2f : 1f;
         float armMultiplier = tourniquetMultiplier ? 1.2f : 1f;
 
-        foreach(GameObject GO in handVesselArray)
+        foreach (GameObject GO in handVesselArray)
         {
             GO.GetComponent<DynamicVessel>().radiusMultiplier = handMultiplier;
         }
-        foreach(GameObject GO in armVesselArray)
+        foreach (GameObject GO in armVesselArray)
         {
             GO.GetComponent<DynamicVessel>().radiusMultiplier = armMultiplier;
         }
@@ -1074,11 +1084,10 @@ public class IV_Manager : MonoBehaviour
         {
             Record_Manager.ME.StartRecord();
         }
-
+        Needle_Backwall_Monitor.ME.StartMonitoring();
         Tourniquet_Pressure_Monitor.ME.StartMonitoring();
         Hand_Slap_Monitor.ME.StartMonitoring();
         Traction_Monitor.ME.StartMonitoring();
-        Needle_Backwall_Monitor.ME.StartMonitoring();
         Dynamic_Score_Display_Manager.ME.StartScoring();
 
 
@@ -1097,7 +1106,7 @@ public class IV_Manager : MonoBehaviour
             Directory.CreateDirectory(folderPath);
     }
 
-    
+
 
     void EndRecord()
     {
@@ -1126,7 +1135,7 @@ public class IV_Manager : MonoBehaviour
 
     public void ReplayRecord()
     {
-        catheter.transform.position = Vector3.zero;
+        // catheter.transform.position = Vector3.zero;
         needle.transform.position = Vector3.zero;
         //proxyTracker.transform.position = Vector3.zero;
         Record_Manager.ME.ReplayRecordedData("C:\\Users\\light\\Desktop\\ITData\\Users\\IV\\bigtest3\\bigtest3_2021-04-07_10-19-03.txt");
@@ -1141,7 +1150,7 @@ public class IV_Manager : MonoBehaviour
         Needle_Backwall_Monitor.ME.StartMonitoring();
 
         Dynamic_Score_Display_Manager.ME.StartScoring();
-        Catheter_Advancer_Axial.ME.EndScoringResetCatheter();
+        //Catheter_Advancer_Axial.ME.EndScoringResetCatheter();
 
         currentStep = STEP.INSERT_NEEDLE_VEIN;
         //BeginProcedure();
@@ -1150,7 +1159,7 @@ public class IV_Manager : MonoBehaviour
 
     public void ReplayAgain()
     {
-        if(Record_Manager.ME.CurrentMode != Record_Manager.Mode.Replay)
+        if (Record_Manager.ME.CurrentMode != Record_Manager.Mode.Replay)
         {
             ReplayRecord();
             return;
@@ -1190,11 +1199,11 @@ public class IV_Manager : MonoBehaviour
         else if (Record_Manager.ME.CurrentMode == Record_Manager.Mode.Replay)
             Record_Manager.ME.EndReplay();
         Start();
-        Catheter_Advancer_Axial.ME.EndScoringResetCatheter();
+        //Catheter_Advancer_Axial.ME.EndScoringResetCatheter();
         //Removes options buttons upon clicking logout 10/24/22 CS
         optionsButton.SetActive(false);
 
-       // Toast.Dismiss();
+        // Toast.Dismiss();
     }
 
     public void ReturnToProcedureSelect()
@@ -1212,6 +1221,7 @@ public class IV_Manager : MonoBehaviour
             ProcedureTestManager.ME.DisableButtons(ProcedureTestManager.testType.notstarted, 2);
             //ProcedureTestManager.ME.DisableButtons(ProcedureTestManager.testType.notstarted, testmode);
         }
+        /*
         else if (Dynamic_Score_Display_Manager.ME.goodCathAdvancement && Dynamic_Score_Display_Manager.ME.tourniquetUsed && Dynamic_Score_Display_Manager.ME.tourniquetRemoved && Dynamic_Score_Display_Manager.ME.needleAccessedVein)
         {
             if (ProcedureTestManager.ME.currentTest == ProcedureTestManager.testType.shortaxis2 && ProcedureTestManager.ME.isStudy)
@@ -1227,9 +1237,10 @@ public class IV_Manager : MonoBehaviour
             ProcedureTestManager.ME.AdvanceTestByOne();
             ProcedureTestManager.ME.SaveCheckpoint();
         }
+        */
         else if (ProcedureTestManager.ME.shortAxisStudy && testmode == 3)
         {
-            if(ProcedureTestManager.ME.shortAxisCompleted)
+            if (ProcedureTestManager.ME.shortAxisCompleted)
             {
                 ProcedureTestManager.ME.currentTest = ProcedureTestManager.testType.longaxis6;
                 ProcedureTestManager.ME.DisableButtons(ProcedureTestManager.testType.longaxis6, testmode);
@@ -1242,7 +1253,7 @@ public class IV_Manager : MonoBehaviour
         }
         else if (ProcedureTestManager.ME.longAxisStudy && testmode == 3)
         {
-            if(ProcedureTestManager.ME.longAxisCompleted)
+            if (ProcedureTestManager.ME.longAxisCompleted)
             {
                 ProcedureTestManager.ME.currentTest = ProcedureTestManager.testType.shortaxis6;
                 ProcedureTestManager.ME.DisableButtons(ProcedureTestManager.testType.shortaxis6, testmode);
@@ -1276,7 +1287,7 @@ public class IV_Manager : MonoBehaviour
             case 3:
                 v1.z = 0;
                 v2.z = 0;
-                break;    
+                break;
             default:
                 break;
         }
@@ -1297,12 +1308,12 @@ public class IV_Manager : MonoBehaviour
     {
         //Made spacebar/complete process canvas screen only reachable if spacebar is pressed while the options button is available 10/24/22 -CS
 
-        Dynamic_Score_Display_Manager.ME.cathInVeinScoreMe = CathInVein();
+        //Dynamic_Score_Display_Manager.ME.cathInVeinScoreMe = CathInVein();
         // testCollider = GameObject.Find("Dynamic Vessel Target Vein 9").GetComponent<Collider>();
         //print(Vector3.Distance(testCollider.ClosestPoint(needleTip.transform.position), needleTip.transform.position));
         //print(testCollider.ClosestPointOnBounds(needleTip.transform.position));
         //print(needleTip.transform.position);
-        
+
         CompleteProcess();
     }
 }
