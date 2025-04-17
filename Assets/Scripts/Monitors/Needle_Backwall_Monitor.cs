@@ -24,7 +24,6 @@ public class Needle_Backwall_Monitor : MonoBehaviour
         monitoring = true;
         BackwallDetected = false;
         distance = Vector3.Distance(needleHub.transform.position, needleTip.transform.position);
-        Debug.Log(distance);
     }
     private void Update()
     {

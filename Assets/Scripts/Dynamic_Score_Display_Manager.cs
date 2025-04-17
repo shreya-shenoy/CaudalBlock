@@ -35,7 +35,7 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
     public string needleVeinLocationAtCathAdvance;
     public float entryAngleDisplay; 
     public Text entryAngleText;
-
+    private bool updateText = true;
 
     //[Header("-----Active Replay Screen Toggles-----")]
     //[SerializeField]
@@ -50,7 +50,7 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
     bool scoring = false;
     public void StartScoring()
     {
-        Debug.Log("START SCORING");
+        //// Debug.Log("START SCORING");
         scoring = true;
         tourniquetToggle.isOn = false;
         handSlapToggle.isOn = false;
@@ -78,19 +78,26 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
         scoreMeButtonTime = 0;
         moveDistanceAccess = 0;
         moveDistanceCath = 0;
+        if (updateText)
+        {
+            entryAngleText.text = "Entry Angle: 0.0";
+            updateText = false;
+        }
 
 
-    //activeTourniquetToggle.isOn = tourniquetToggle.isOn;
-    //activeHandSlapToggle.isOn = handSlapToggle.isOn;
-    //activeTractionToggle.isOn = tractionToggle.isOn;
-    //activeNeedleEntryToggle.isOn = needleEntryToggle.isOn;
-    //activeBackwallToggle.isOn = backwallToggle.isOn;
-    //activeEntryAngleToggle.isOn = entryAngleToggle.isOn;
-    //activeGoodCatheterAdvancementToggle.isOn = goodCatheterAdvancementToggle.isOn;
+
+        //activeTourniquetToggle.isOn = tourniquetToggle.isOn;
+        //activeHandSlapToggle.isOn = handSlapToggle.isOn;
+        //activeTractionToggle.isOn = tractionToggle.isOn;
+        //activeNeedleEntryToggle.isOn = needleEntryToggle.isOn;
+        //activeBackwallToggle.isOn = backwallToggle.isOn;
+        //activeEntryAngleToggle.isOn = entryAngleToggle.isOn;
+        //activeGoodCatheterAdvancementToggle.isOn = goodCatheterAdvancementToggle.isOn;
 
     }
     private void Update()
     {
+        //// Debug.Log("Is Angle Good? " + IV_Manager.ME.needleSkinAngleAtPuncture.ToString() + goodEntryAngle);
         //if (!scoring)
         //    return;
         if (tourniquetRemovedTime > veinAccessTime && IV_Manager.ME.pressureDuringPuncture)
@@ -111,7 +118,7 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
             tourniquetToggle.isOn = false;
             tourniquetRemovedToggle.isOn = false;
         }
-        Debug.Log("Move Distance Access:" + moveDistanceAccess.ToString());
+        //// Debug.Log("Move Distance Access:" + moveDistanceAccess.ToString());
 
         // if (IV_Manager.ME.properTourniquetRemoval)  //Tourniquet_Pressure_Monitor.ME.LastTimeApplied > -1 && veinAccessTime < tourniquetRemovedTime)
         // {
@@ -173,18 +180,13 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
         {
             canReset = false;
             entryAngleToggle.isOn = true;
-            Debug.Log("Toggle:" + entryAngleToggle.isOn);
-        }
-      
-        else
+            // Debug.Log("Good Entry Toggle:" + entryAngleToggle.isOn);
+        } else if (!goodEntryAngle)
         {
-            if(canReset){
-                 // case where it doesn't work: put needle in, take out, and put it in again
-                Debug.Log("Toggle:" + entryAngleToggle.isOn);
-                entryAngleToggle.isOn = false;
-            }
+            entryAngleToggle.isOn = false;
         }
-        Debug.Log("RESET" + canReset);
+
+        // Debug.Log("RESET" + canReset);
         // in skin: angle is good, toggle is true
         // leave the skin: angle is bad, toggle should still be true
         // if angle is bad, toggle should be false only if it has never been true
@@ -197,7 +199,7 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
         else
         {
             backwallToggle.isOn = false;
-            Debug.Log("BACKWALL DETECTED");
+            // Debug.Log("BACKWALL DETECTED");
             needleBackwalled = true;
         }
           
@@ -218,15 +220,6 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
         backwallToggle.isOn = !Needle_Backwall_Monitor.ME.BackwallDetected;
 
         //tourniquetRemovedToggle.isOn = Tourniquet_Pressure_Monitor.ME.LastTimeRemoved > -1; 
-        entryAngleDisplay = IV_Manager.ME.needleSkinAngleAtPuncture;
-        
-        entryAngleText.text = "Entry Angle: " + entryAngleDisplay.ToString("0.0");
-    
-                
-        goodEntryAngle = IV_Manager.ME.needleSkinAngleAtPuncture > 40f && IV_Manager.ME.needleSkinAngleAtPuncture < 50f;
-        
-        Debug.Log("Entry Angle:" + goodEntryAngle + IV_Manager.ME.needleSkinAngleAtPuncture);
-
         //activeTourniquetToggle.isOn = tourniquetToggle.isOn;
         //activeHandSlapToggle.isOn = handSlapToggle.isOn;
         //activeTractionToggle.isOn = tractionToggle.isOn;
@@ -297,7 +290,7 @@ public class Dynamic_Score_Display_Manager : MonoBehaviour
         spreadsheetLine = spreadsheetLine + needleVeinLocationAtCathAdvance.ToString() + "|";
         spreadsheetLine = spreadsheetLine + moveDistanceAccess.ToString() + "|";
         spreadsheetLine = spreadsheetLine + moveDistanceCath.ToString() + "|";
-        Debug.Log("Move Distance Access:" + moveDistanceAccess.ToString());
+        // Debug.Log("Move Distance Access:" + moveDistanceAccess.ToString());
         if (Mathf.Abs(needleBevelAngle) > 30)
         {
             spreadsheetLine = spreadsheetLine + "True|";

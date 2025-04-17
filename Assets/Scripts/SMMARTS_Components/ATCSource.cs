@@ -180,6 +180,7 @@ namespace SMARTS_SDK
             }
         }
         bool enableATCTrackingObject3 = true;
+        /*
         [SerializeField]
         private GameObject trackedObject4;
         public GameObject TrackedObject4 { get { return trackedObject4; } set { trackedObject4 = value; } }
@@ -200,11 +201,11 @@ namespace SMARTS_SDK
                     throw new UnauthorizedAccessException("When CurrentInputMode is set to \"Replay_Data\" the ATC does not allow user changes to the \"EnableTrackingObject4\" field.\n" +
                     "This is done to ensure replayed data is properly interpreted, and the data is accurately replayed.");
                 }
-                enableTrackingObject4 = value;
+                enableTrackingObject4 = false;
             }
         }
         bool enableATCTrackingObject4 = true;
-
+        */
 
         //[Header("----------- ATC Connection Options ------------------------------------------------------------------")]
         [SerializeField]
@@ -461,7 +462,7 @@ namespace SMARTS_SDK
             enableTrackingObject1 = enableTrackingObject1 && (trackedObject1 != null);
             enableTrackingObject2 = enableTrackingObject2 && (trackedObject2 != null);
             enableTrackingObject3 = enableTrackingObject3 && (trackedObject3 != null);
-            enableTrackingObject4 = enableTrackingObject4 && (trackedObject4 != null);
+            //enableTrackingObject4 = enableTrackingObject4 && (trackedObject4 != null);
             // This will set all filter settings and the Volume Correction Factor to Dave's best result from 4/24/2015
             if (usePresetsForSRT)
             {
@@ -820,12 +821,14 @@ namespace SMARTS_SDK
                         trackedObject3.transform.position = Vector3StringToVector3(splitReplayData[12]);
                         trackedObject3.transform.rotation = QuaternionStringToQuaternion(splitReplayData[13]);
                     }
+                    /*
                     enableTrackingObject4 = splitReplayData[14].Equals("True");
                     if (enableTrackingObject4)
                     {
                         trackedObject4.transform.position = Vector3StringToVector3(splitReplayData[15]);
                         trackedObject4.transform.rotation = QuaternionStringToQuaternion(splitReplayData[16]);
                     }
+                    */
                 }
             }
             catch (Exception e)
@@ -941,11 +944,13 @@ namespace SMARTS_SDK
                 trackedObject3.transform.position = Vector3.zero;
                 trackedObject3.transform.rotation = Quaternion.identity;
             }
+            /*
             if (trackedObject4 != null)
             {
                 trackedObject4.transform.position = Vector3.zero;
                 trackedObject4.transform.rotation = Quaternion.identity;
             }
+            */
             Sensor1Utilities = Vector4.zero;
             Sensor2Utilities = Vector4.zero;
             Sensor3Utilities = Vector4.zero;
@@ -1012,6 +1017,7 @@ namespace SMARTS_SDK
                     }
                 }
             }
+            /*
             if (enableTrackingObject4)
             {
                 trackedObject4.transform.position = new Vector3(GetRecordATC_4x() * volumeCorrectionFactor.x, GetRecordATC_4y() * volumeCorrectionFactor.y, GetRecordATC_4z() * volumeCorrectionFactor.z);
@@ -1028,6 +1034,7 @@ namespace SMARTS_SDK
                     }
                 }
             }
+            */
             string newReplayFormattedATCInputString = "ATC DATA|ATCDC|";
             GameObject GO;
             newReplayFormattedATCInputString += enableTrackingBaseObject + "|";
@@ -1062,6 +1069,7 @@ namespace SMARTS_SDK
             }
             else
                 newReplayFormattedATCInputString += "|" + Vector3.zero.ToString("0.0") + "|" + Quaternion.identity.ToString("0.0");
+            /*
             newReplayFormattedATCInputString += "|" + enableTrackingObject4;
             if (enableTrackingObject4)
             {
@@ -1071,6 +1079,7 @@ namespace SMARTS_SDK
             else
                 newReplayFormattedATCInputString += "|" + Vector3.zero.ToString("0.0") + "|" + Quaternion.identity.ToString("0.0");
             replayFormattedATCInputString = newReplayFormattedATCInputString;
+                        */
         }
         void OnApplicationQuit()
         {
@@ -1102,9 +1111,10 @@ namespace SMARTS_SDK
                 results = Sensor2Utilities;
             if (trackedObject3 != null && trackedObjectName == trackedObject3.name)
                 results = Sensor3Utilities;
+            /*
             if (trackedObject4 != null && trackedObjectName == trackedObject4.name)
                 results = Sensor4Utilities;
-
+            */
             return results;
         }
         void ResetToATCSettings()
@@ -1113,7 +1123,7 @@ namespace SMARTS_SDK
             enableTrackingObject1 = enableATCTrackingObject1;
             enableTrackingObject2 = enableATCTrackingObject2;
             enableTrackingObject3 = enableATCTrackingObject3;
-            enableTrackingObject4 = enableATCTrackingObject4;
+            //enableTrackingObject4 = false;
         }
 
         // --------- Special Alignment Stuff - EDITOR ONLY ----------------------//
@@ -1230,7 +1240,7 @@ namespace SMARTS_SDK
                 if (editSensor == AlignSensor.Sensor1) objectName = trackedObject1.name;
                 if (editSensor == AlignSensor.Sensor2) objectName = trackedObject2.name;
                 if (editSensor == AlignSensor.Sensor3) objectName = trackedObject3.name;
-                if (editSensor == AlignSensor.Sensor4) objectName = trackedObject4.name;
+                //if (editSensor == AlignSensor.Sensor4) objectName = trackedObject4.name;
 
                 string px = offsetPosition.x.ToString("0.000");
                 string py = offsetPosition.y.ToString("0.000");
@@ -1322,8 +1332,8 @@ namespace SMARTS_SDK
                     trackedObject = trackedObject2;
                 if (sensor == 2)
                     trackedObject = trackedObject3;
-                if (sensor == 3)
-                    trackedObject = trackedObject4;
+                //if (sensor == 3)
+                    //trackedObject = trackedObject4;
                 if (debuggingActive)
                     Debug.Log("Attempting to track: " + trackedObject.name
                         + " with sensor port: " + sensor + ".\nNo sensor connected," +

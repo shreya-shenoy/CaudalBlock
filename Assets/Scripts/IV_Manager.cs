@@ -356,7 +356,7 @@ public class IV_Manager : MonoBehaviour
         //currentStep = STEP.INSERT_NEEDLE_SKIN;
         procedureTimer = new Stopwatch();
         currentStep = STEP.INSERT_NEEDLE_VEIN;
-        Debug.Log("IN BEGIN PROCEDURE");
+        // Debug.Log("IN BEGIN PROCEDURE");
         //Toast.Dismiss();
         // Toast.Show(this, "Place the IV catheter into the vein.", 10, Toast.Type.MESSAGE, 30, Toast.Gravity.BOTTOM, "Place the IV catheter into the vein.");
         // Toast.Show(this, "When finished press spacebar for assessment.", 500, Toast.Type.MESSAGE, 30);
@@ -515,7 +515,12 @@ public class IV_Manager : MonoBehaviour
         if (SkinLineMonitor.InstanceOfPuncture)
         {
             needleSkinAngleAtPuncture = NeedleSkinAngle();
-            Debug.Log("Entry Skin Angle: " + needleSkinAngleAtPuncture);
+            // Debug.Log("Entry Skin Angle: " + needleSkinAngleAtPuncture);
+            Dynamic_Score_Display_Manager.ME.entryAngleDisplay = needleSkinAngleAtPuncture;
+            Dynamic_Score_Display_Manager.ME.entryAngleText.text = "Entry Angle: " +Dynamic_Score_Display_Manager.ME.entryAngleDisplay.ToString("0.0");
+            Dynamic_Score_Display_Manager.ME.goodEntryAngle = needleSkinAngleAtPuncture > 40f && needleSkinAngleAtPuncture < 50f;
+
+
             //print("cath needle distance: " + Vector3.Distance(catheterHub.transform.position, needleHub.transform.position));
             //if(Vector3.Distance(catheterHub.transform.position, needleHub.transform.position) > maxCathStartDistance)
             //{
@@ -617,25 +622,25 @@ public class IV_Manager : MonoBehaviour
 
                 //AdvanceCatheter();
 
-                Debug.Log("Confirmed Hit!!!!");
+                // Debug.Log("Confirmed Hit!!!!");
                 BeginProcedure();
-
+                RemoveNeedle();
             }
         }
 
         //if(currentStep==STEP.ADVANCE_CATHETER)
         //Dynamic_Score_Display_Manager.ME.moveDistanceAccess = Vector3.Distance(needleTipPosAtAccess, needleTipPosAtCathStart);
-        //Debug.Log("Catheter Distance" + Dynamic_Score_Display_Manager.ME.moveDistanceAccess);
+        //// Debug.Log("Catheter Distance" + Dynamic_Score_Display_Manager.ME.moveDistanceAccess);
         //needleDepth = 0;
         //needleTipPosAtCathStart = needleTip.transform.position;
-        //Debug.Log("NeedleTipPosAtAccess: " + needleTipPosAtAccess + "NeedleTipPosAtCathStart" + needleTipPosAtCathStart);
+        //// Debug.Log("NeedleTipPosAtAccess: " + needleTipPosAtAccess + "NeedleTipPosAtCathStart" + needleTipPosAtCathStart);
         //needleCurrentPos = needleTip.transform.position;
         //needleDepth = Vector3.Distance(needleAtStart, needleCurrentPos);
-        //Debug.Log("Needle Depth" + needleDepth);
+        //// Debug.Log("Needle Depth" + needleDepth);
         //{   //if(Catheter_Advancement_Monitor.ME.CatheterAdvancementDistance < 1)
         ///{
         //  needleTipPosAtCathStart = needleTip.transform.position;
-        //Debug.Log("NeedleTipPosAtAccess: " + needleTipPosAtAccess + "NeedleTipPosAtCathStart" + needleTipPosAtCathStart);
+        //// Debug.Log("NeedleTipPosAtAccess: " + needleTipPosAtAccess + "NeedleTipPosAtCathStart" + needleTipPosAtCathStart);
         // Dynamic_Score_Display_Manager.ME.moveDistanceAccess = Vector3.Distance(needleTipPosAtAccess, needleTipPosAtCathStart);
         //   if (NeedleInInnerThird())
         // {
@@ -756,17 +761,17 @@ public class IV_Manager : MonoBehaviour
         //if (Hand_Slap_Monitor.ME.SlapDetected)
         //{
 
-        //    Debug.Log("Slap detected!");
+        //    // Debug.Log("Slap detected!");
         //}
 
         //if (Hand_Slap_Monitor.handWasSlapped)
         //{
-        //    Debug.Log("Hand was slapped!");
+        //    // Debug.Log("Hand was slapped!");
         //}
 
         //if (Tourniquet_Pressure_Monitor.ME.pressureTooLow)
         //{
-        //    Debug.Log("Pressure too low!");
+        //    // Debug.Log("Pressure too low!");
         //} else if (Tourniquet_Pressure_Monitor.ME.pressureCorrect)
         //{
         //    Debug.Log("Correct Pressure");
@@ -957,9 +962,9 @@ public class IV_Manager : MonoBehaviour
         else
         {
             needlePunctureSkin = true;
-            Debug.Log("Needle Punctured Skin");
-            Debug.Log("Puncture Angle:" + Vector3.Angle(needleHub.transform.position -
-            needleTip.transform.position, layerHit.normal));
+            // Debug.Log("Needle Punctured Skin");
+            // Debug.Log("Puncture Angle:" + Vector3.Angle(needleHub.transform.position -
+            //needleTip.transform.position, layerHit.normal));
             return Vector3.Angle(needleHub.transform.position -
             needleTip.transform.position, layerHit.normal);
         }
@@ -1216,7 +1221,7 @@ public class IV_Manager : MonoBehaviour
 
         if ((User_Manager.ME.Username.ToLower() == "demo") || (testmode == 2)) //&& !(ProcedureTestManager.ME.longAxisStudy || ProcedureTestManager.ME.shortAxisStudy)
         {
-            Debug.Log("demo(ProcedureSelect)");
+            // Debug.Log("demo(ProcedureSelect)");
             ProcedureTestManager.ME.currentTest = ProcedureTestManager.testType.notstarted;
             ProcedureTestManager.ME.DisableButtons(ProcedureTestManager.testType.notstarted, 2);
             //ProcedureTestManager.ME.DisableButtons(ProcedureTestManager.testType.notstarted, testmode);
